@@ -44,7 +44,7 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Name</th>
                             <th>Slug</th>
                             <th>Products</th>
@@ -54,7 +54,7 @@
                     <tbody>
                         @foreach ($categories as $category)
                         <tr>
-                            <td>{{$category->id}}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td class="pname">
                                 <div class="image">
                                     <img src="{{asset('uploads/categories')}}/{{$category->image}}" alt="{{$category->name}}" class="image">

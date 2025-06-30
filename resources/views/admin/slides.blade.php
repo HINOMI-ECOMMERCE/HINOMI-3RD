@@ -42,7 +42,7 @@
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>No</th>
                             <th>Image</th>
                             <th>Tagline</th>
                             <th>Title</th>
@@ -54,7 +54,7 @@
                     <tbody>
                         @foreach($slides as $slide)
                         <tr>
-                            <td>{{$slide->id}}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td class="pname">
                                 <div class="image">
                                     <img src="{{asset('uploads/slides')}}/{{$slide->image}}" alt="{{$slide->title}}">
