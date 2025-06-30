@@ -185,10 +185,15 @@ class AdminController extends Controller
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
         $image = $request->file('image');
-        $file_extension = $image->extension();
-        $file_name = Carbon::now()->timestamp . '.' . $file_extension;
-        $this->GenerateCategoryThumbnailImage($image, $file_name);
-        $category->image = $file_name;
+       if ($image) {
+            $file_extension = $image->extension();
+            $file_name = Carbon::now()->timestamp . '.' . $file_extension;
+
+            $this->GenerateCategoryThumbnailImage($image, $file_name);
+            $category->image = $file_name;
+        } else {
+            $category->image = null;
+        }
         $category->save();
         return redirect()->route('admin.categories')->with('status', 'category added successfully');
     }
