@@ -1,3 +1,19 @@
+@php $loginUrl = route('login'); $isGuest = Auth::guest(); @endphp
+@push('scripts')
+<script>
+  $(function(){
+    // ...existing code...
+
+    // Handle btn-addtocart for guest
+    $('.btn-addtocart').on('click', function(e) {
+      @if($isGuest)
+        e.preventDefault();
+        window.location.href = "{{ $loginUrl }}";
+      @endif
+    });
+  });
+</script>
+@endpush
 @extends('layouts.app')
 @section('content')
 <style>
@@ -357,17 +373,22 @@
                       <use href="#icon_next_sm" />
                     </svg></span>
                 </div>
+            @php $isGuest = Auth::guest(); @endphp
             @if(Cart::instance('cart')->content()->where('id', $product->id)->count()>0)
-              <a href="{{ Auth::check() ? route('cart.index') : route('register') }}" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium btn-warning mb-3">Go to Cart</a>
+              <a href="{{ $isGuest ? route('register') : route('cart.index') }}" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium btn-warning mb-3 go-to-cart-btn">Go to Cart</a>
             @else
-               <form name="addtocart-form" method="post" action="{{route('cart.add')}}">
-            @csrf
-            <input type="hidden" name="id" value="{{$product->id}}" />
-            <input type="hidden" name="quantity" value="1" />
-            <input type="hidden" name="name" value="{{$product->name}}" />
-            <input type="hidden" name="price" value="{{$product->sale_price == '' ? $product->regular_price : $product->sale_price}}" />
-            <button type="submit" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium" data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
-              </form>
+              @if($isGuest)
+                <a href="{{ route('login') }}" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium btn-warning mb-3">Add To Cart</a>
+              @else
+                <form name="addtocart-form" method="post" action="{{route('cart.add')}}">
+                  @csrf
+                  <input type="hidden" name="id" value="{{$product->id}}" />
+                  <input type="hidden" name="quantity" value="1" />
+                  <input type="hidden" name="name" value="{{$product->name}}" />
+                  <input type="hidden" name="price" value="{{$product->sale_price == '' ? $product->regular_price : $product->sale_price}}" />
+                  <button type="submit" class="pc__atc btn anim_appear-bottom btn position-absolute border-0 text-uppercase fw-medium" data-aside="cartDrawer" title="Add To Cart">Add To Cart</button>
+                </form>
+              @endif
             @endif
               </div>
 
@@ -408,7 +429,7 @@
                 <form method="POST" action="{{route('wishlist.item.remove',['rowId'=>Cart::instance('wishlist')->content()->where('id', $product->id)->first()->rowId])}}">
                   @csrf
                   @method('DELETE')
-                 <button type="submit" class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist filled-heart"title="Remove from Wishlist">
+                  <button type="submit" class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist filled-heart"title="Remove from Wishlist">
                     <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <use href="#icon_heart" />
                     </svg>

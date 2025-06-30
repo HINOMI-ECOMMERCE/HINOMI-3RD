@@ -3,9 +3,6 @@
 @section('content')
 
   <main class="pt-90">
-    @if(session('error'))
-      <div class="alert alert-danger">{{ session('error') }}</div>
-    @endif
     <div class="mb-4 pb-4"></div>
     <section class="login-register container">
       <ul class="nav nav-tabs mb-5" id="login_register" role="tablist">
