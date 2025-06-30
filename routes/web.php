@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\AboutController;
 use App\Http\Middleware\AuthAdmin;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,9 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
 Route::get('/shop{product_slug}', [ShopController::class, 'product_details'])->name('shop.product.details');
+
+Route::get('/about-us', [AboutController::class, 'about'])->name('about.index');
+
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add',[CartController::class, 'add_to_cart'])->name('cart.add');
@@ -96,6 +100,5 @@ Route::middleware(['auth',AuthAdmin::class])->group(function(){
 
     Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
 
-    Route::get('/about-us', [HomeController::class, 'about'])->name('home.about');
 });
  
