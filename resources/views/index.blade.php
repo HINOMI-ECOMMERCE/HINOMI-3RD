@@ -90,10 +90,11 @@
             <div class="swiper-wrapper">
   @foreach($categories as $category)
   <div class="swiper-slide">
+    <a href="{{ route('shop.index', ['categories' => $category->id]) }}" class="menu-link fw-medium">
     <img loading="lazy" class="w-100 h-auto mb-3" src="{{ asset('uploads/categories/' . $category->image) }}" width="124"
       height="124" alt="{{ $category->name }}" />
     <div class="text-center">
-      <a href="{{ route('shop.index', ['categories' => $category->id]) }}" class="menu-link fw-medium">{{ $category->name }}</a>
+      {{ $category->name }}</a>
     </div>
   </div>
   @endforeach
@@ -284,9 +285,9 @@
           @endforeach
         </div><!-- /.row -->
 
-        <div class="text-center mt-2">
+        <!-- <div class="text-center mt-2">
           <a class="btn-link btn-link_lg default-underline text-uppercase fw-medium" href="#">Load More</a>
-        </div>
+        </div> -->
       </section>
     </div>
 

@@ -32,7 +32,7 @@
             <div class="accordion" id="categories-list">
                 <div class="accordion-item mb-4 pb-3">
                     <h5 class="accordion-header" id="accordion-heading-1">
-                        <button class="accordion-button p-0 border-0 fs-5 text-uppercase" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button p-0 border-0 fs-5 text-uppercase py-4" type="button" data-bs-toggle="collapse"
                             data-bs-target="#accordion-filter-1" aria-expanded="true" aria-controls="accordion-filter-1">
                             Product Categories
                             <svg class="accordion-button__icon type2" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg">
