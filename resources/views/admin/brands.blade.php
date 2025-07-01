@@ -56,7 +56,7 @@
                         @foreach ($brands as $brand)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><a href="#" class="body-title-2">{{$brand->name}}</a></td>
+                            <td>{{$brand->name}}</td>
                             <td><img src="{{asset('uploads/brands')}}/{{$brand->image}}" alt="{{$brand->name}}" class="image"></td>
                             <td>{{$brand->slug}}</td>
                             <td>{{ $brand->products_count ?? 0 }}</td>
