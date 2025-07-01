@@ -673,6 +673,6 @@ class AdminController extends Controller
         $query = $request->input('query');
         $results = Product::where('name', 'LIKE', "%{$query}%")->get()->take(8);
 
-        return response()->json($results);
+        return response()->json($results); 
     }
 }
