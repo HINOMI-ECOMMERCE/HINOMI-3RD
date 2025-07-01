@@ -136,7 +136,7 @@ class CartController extends Controller
         {
            $request->validate([
                 'name' => 'required|max:100',
-                'phone' => 'required|numeric|digits:10',
+                'phone' => 'required|numeric|digits_between:10,15',
                 'zip'=> 'required|numeric|digits:6',
                 'state' => 'required',
                 'city' => 'required',
