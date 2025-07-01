@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class UserController extends Controller
 {
     public function index()
@@ -44,4 +45,5 @@ class UserController extends Controller
         $order->save();
         return back()->with('status', 'Order has been cancelled successfully.');
     }
+
 }
