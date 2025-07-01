@@ -205,19 +205,19 @@
                                     </a>
                                 </li>
 
-                                <li class="menu-item">
+                                {{-- <li class="menu-item">
                                     <a href="users.html" class="">
                                         <div class="icon"><i class="icon-user"></i></div>
                                         <div class="text">User</div>
                                     </a>
-                                </li>
+                                </li> --}}
 
-                                <li class="menu-item">
+                                {{-- <li class="menu-item">
                                     <a href="settings.html" class="">
                                         <div class="icon"><i class="icon-settings"></i></div>
                                         <div class="text">Settings</div>
                                     </a>
-                                </li>
+                                </li> --}}
 
                                 <li class="menu-item">
                                     <form method="POST"action="{{route('logout')}}" id="logout-form">
@@ -264,7 +264,7 @@
                             </div>
                             <div class="header-grid">
 
-                                <div class="popup-wrap message type-header">
+                                {{-- <div class="popup-wrap message type-header">
                                     <div class="dropdown">
                                         <button class="btn btn-secondary dropdown-toggle" type="button"
                                             id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -329,7 +329,7 @@
                                             <li><a href="#" class="tf-button w-full">View all</a></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
 
 
 
@@ -350,7 +350,7 @@
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-end has-content"
                                             aria-labelledby="dropdownMenuButton3">
-                                            <li>
+                                            {{-- <li>
                                                 <a href="#" class="user-item">
                                                     <div class="icon">
                                                         <i class="icon-user"></i>
@@ -382,14 +382,15 @@
                                                     </div>
                                                     <div class="body-title-2">Support</div>
                                                 </a>
-                                            </li>
+                                            </li> --}} 
                                             <li>
-                                                <a href="login.html" class="user-item">
-                                                    <div class="icon">
-                                                        <i class="icon-log-out"></i>
-                                                    </div>
-                                                    <div class="body-title-2">Log out</div>
-                                                </a>
+                                                <form method="POST"action="{{route('logout')}}" id="logout-form">
+                                                    @csrf
+                                                        <a href="{{route('logout')}}" class="" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                            <div class="icon"><i class="icon-log-out"></i></div>
+                                                            <div class="body-title-2">Log out</div>
+                                                        </a>
+                                                </form>
                                             </li>
                                         </ul>
                                     </div>
@@ -402,7 +403,7 @@
                        @yield('content')
 
                         <div class="bottom-page">
-                            <div class="body-text">Copyright © 2024 SurfsideMedia</div>
+                            <div class="body-text">Copyright © 2024 Hinomi</div>
                         </div>
                     </div>
 

@@ -41,7 +41,7 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>No</th>
                                 <th>Name</th>
                                 <th>Phone</th>
                                 <th>Email</th>
@@ -53,7 +53,7 @@
                         <tbody>
                             @foreach ($contacts as $contact)
                             <tr>
-                                <td>{{$contact->id}}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{$contact->name}}</td>
                                 <td>{{$contact->phone}}</td>
                                 <td>{{$contact->email}}</td>

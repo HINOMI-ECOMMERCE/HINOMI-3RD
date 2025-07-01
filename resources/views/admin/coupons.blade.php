@@ -42,7 +42,7 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th>No</th>
                                 <th>Code</th>
                                 <th>Type</th>
                                 <th>Value</th>
@@ -54,7 +54,7 @@
                         <tbody>
                             @foreach ($coupons as $coupon)
                             <tr>
-                                <td>{{$coupon->id}}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{$coupon->code}}</td>
                                 <td>{{$coupon->type}}</td>
                                 <td>{{$coupon->value}}</td>
