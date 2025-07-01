@@ -3,7 +3,7 @@
 @section('content')
 <style>
     .brand-list li, .category-list li {
-        line-height: 40px; 
+        line-height: 40px;
     }
 
     .brand-list li .chk-brand, .category-list li .chk-category {
@@ -50,7 +50,7 @@
                                 @foreach($categories as $category)
                                 <li class="list-item">
                                     <span class="menu-link py-1">
-                                        <input type="checkbox" class="chk-category" name="categories" value="{{$category->id}}" 
+                                        <input type="checkbox" class="chk-category" name="categories" value="{{$category->id}}"
                                         @if(in_array($category->id,explode(',', $f_categories))) checked="checked" @endif
                                         />
                                         {{$category->name}}
@@ -135,7 +135,8 @@
         </div>
 
         <div class="shop-list flex-grow-1">
-            <div class="swiper-container js-swiper-slider slideshow slideshow_small slideshow_split" data-settings='{
+            {{-- Bagian ini adalah slider yang ingin Anda hapus/sembunyikan --}}
+            {{-- <div class="swiper-container js-swiper-slider slideshow slideshow_small slideshow_split" data-settings='{
                 "autoplay": {
                   "delay": 5000
                 },
@@ -216,7 +217,8 @@
                 <div class="container p-3 p-xl-5">
                     <div class="slideshow-pagination d-flex align-items-center position-absolute bottom-0 mb-4 pb-xl-2"></div>
                 </div>
-            </div>
+            </div> --}}
+            {{-- Akhir dari bagian slider yang dihapus/dikomentari --}}
 
             <div class="mb-3 pb-2 pb-xl-3"></div>
 
@@ -291,7 +293,7 @@
                                         <use href="#icon_next_sm" />
                                     </svg></span>
                             </div>
-                            
+
                             {{-- Logic untuk Add to Cart --}}
                             @php $isGuest = Auth::guest(); @endphp
                             @if(Cart::instance('cart')->content()->where('id', $product->id)->count()>0)
@@ -345,6 +347,7 @@
                                 <span class="reviews-note text-lowercase text-secondary ms-1">8k+ reviews</span>
                             </div>
 
+                            {{--- LOGIC WISHLIST ---}}
                             @guest {{-- Jika pengguna belum login --}}
                                 <a href="{{ route('login') }}" class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist" title="Login untuk menambahkan ke Wishlist">
                                     <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -356,14 +359,14 @@
                                     {{-- Jika produk sudah ada di wishlist --}}
                                     <form method="POST" action="{{route('wishlist.item.remove',['rowId'=>Cart::instance('wishlist')->content()->where('id', $product->id)->first()->rowId])}}">
                                         @csrf
-                                        @method('DELETE') {{-- Penting untuk metode DELETE jika menggunakan resource controller --}}
+                                        @method('DELETE')
                                         <button type="submit" class="pc__btn-wl position-absolute top-0 end-0 bg-transparent border-0 js-add-wishlist filled-heart" title="Hapus dari Wishlist">
                                             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <use href="#icon_heart" />
                                             </svg>
                                         </button>
                                     </form>
-                                @else 
+                                @else
                                     {{-- Jika produk belum ada di wishlist --}}
                                     <form method="POST" action="{{route('wishlist.add')}}">
                                         @csrf
@@ -458,7 +461,7 @@
             $("#hdnMaxRange").val(max);
             setTimeout(()=>{
                 $("#frmfilter").submit();
-            }, 2000); 
+            }, 2000);
         });
     });
 </script>
