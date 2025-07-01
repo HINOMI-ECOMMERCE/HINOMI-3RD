@@ -601,6 +601,30 @@
         </div>
 
         <div class="footer-column footer-menu mb-4 mb-lg-0">
+          <h6 class="sub-menu__title text-uppercase">Shop</h6>
+          <ul class="sub-menu__list list-unstyled">
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">New Arrivals</a></li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Accessories</a></li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Men</a></li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Women</a></li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Shop All</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column footer-menu mb-4 mb-lg-0">
+          <h6 class="sub-menu__title text-uppercase">Help</h6>
+          <ul class="sub-menu__list list-unstyled">
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Customer Service</a></li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">My Account</a>
+            </li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Find a Store</a>
+            </li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Legal & Privacy</a></li>
+            <li class="sub-menu__item"><a href="#" class="menu-link menu-link_us-s">Gift Card</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column footer-menu mb-4 mb-lg-0">
           <h6 class="sub-menu__title text-uppercase">Categories</h6>
           <ul class="sub-menu__list list-unstyled">
             @foreach($categories->take(4) as $category)
