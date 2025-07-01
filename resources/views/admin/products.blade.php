@@ -44,6 +44,7 @@
                         <tr>
                             <th>No</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Price</th>
                             <th>SalePrice</th>
                             <th>SKU</th>
@@ -59,15 +60,11 @@
                         @foreach($products as $product)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td class="pname">
-                                <div class="image">
-                                    <img src="{{asset('uploads/products/thumbnails')}}/{{$product->image}}" alt="$product->name" class="image">
-                                </div>
-                                <div class="name">
-                                    <a href="#" class="body-title-2">{{$product->name}}</a>
+                            <td>
+                                {{$product->name}}
                                     <div class="text-tiny mt-3">{{$product->slug}}</div>
-                                </div>
                             </td>
+                            <td><img src="{{asset('uploads/products/thumbnails')}}/{{$product->image}}" alt="$product->name" class="image"></td>
                             <td>${{$product->regular_price}}</td>
                             <td>${{$product->sale_price}}</td>
                             <td>{{$product->SKU}}</td>
@@ -78,11 +75,6 @@
                             <td>{{$product->quantity}}</td>
                             <td>
                                 <div class="list-icon-function">
-                                    <a href="#" target="_blank">
-                                        <div class="item eye">
-                                            <i class="icon-eye"></i>
-                                        </div>
-                                    </a>
                                     <a href="{{route('admin.product.edit',['id' => $product->id])}}">
                                         <div class="item edit">
                                             <i class="icon-edit-3"></i>

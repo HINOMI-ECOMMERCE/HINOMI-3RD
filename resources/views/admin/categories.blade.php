@@ -46,6 +46,7 @@
                         <tr>
                             <th>No</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Slug</th>
                             <th>Products</th>
                             <th>Action</th>
@@ -55,16 +56,10 @@
                         @foreach ($categories as $category)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td class="pname">
-                                <div class="image">
-                                    <img src="{{asset('uploads/categories')}}/{{$category->image}}" alt="{{$category->name}}" class="image">
-                                </div>
-                                <div class="name">
-                                    <a href="#" class="body-title-2">{{$category->name}}</a>
-                                </div>
-                            </td>
+                            <td>{{$category->name}}</td>
+                            <td><img src="{{asset('uploads/categories')}}/{{$category->image}}" alt="{{$category->name}}" class="image"></td>
                             <td>{{$category->slug}}</td>
-                            <td><a href="#" target="_blank">{{ $category->products_count ?? 0 }}</a></td>
+                            <td>{{ $category->products_count ?? 0 }}</td>
                             <td>
                                 <div class="list-icon-function">
                                    <a href="{{ route('admin.category.edit', ['id' => $category->id]) }}">
