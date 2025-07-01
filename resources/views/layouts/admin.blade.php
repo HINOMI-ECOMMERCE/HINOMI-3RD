@@ -167,25 +167,12 @@
                                         </li>
                                     </ul>
                                 </li>
-
-                                <li class="menu-item has-children">
-                                    <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-file-plus"></i></div>
-                                        <div class="text">Order</div>
+                                <li class="menu-item">
+                                    <a href="{{route('admin.orders')}}" class="">
+                                         <div class="icon"><i class="icon-file-plus"></i></div>
+                                        <div class="text">Orders</div>
                                     </a>
-                                    <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="{{route('admin.orders')}}" class="">
-                                                <div class="text">Orders</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="order-tracking.html" class="">
-                                                <div class="text">Order tracking</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                </li>  
                                 <li class="menu-item">
                                     <a href="{{route('admin.slides')}}" class="">
                                         <div class="icon"><i class="icon-image"></i></div>
@@ -204,20 +191,6 @@
                                         <div class="text">Message</div>
                                     </a>
                                 </li>
-
-                                {{-- <li class="menu-item">
-                                    <a href="users.html" class="">
-                                        <div class="icon"><i class="icon-user"></i></div>
-                                        <div class="text">User</div>
-                                    </a>
-                                </li> --}}
-
-                                {{-- <li class="menu-item">
-                                    <a href="settings.html" class="">
-                                        <div class="icon"><i class="icon-settings"></i></div>
-                                        <div class="text">Settings</div>
-                                    </a>
-                                </li> --}}
 
                                 <li class="menu-item">
                                     <form method="POST"action="{{route('logout')}}" id="logout-form">
@@ -342,9 +315,9 @@
                                                 <span class="image">
                                                     <img src="images/avatar/user-1.png" alt="">
                                                 </span>
-                                                <span class="flex flex-column">
-                                                    <span class="body-title mb-2">Kristin Watson</span>
-                                                    <span class="text-tiny">Admin</span>
+                                                  <span class="flex flex-column">
+                                                    <span class="body-title mb-2">{{ Auth::user()->name }}</span>
+                                                    <span class="text-tiny">{{ Auth::user()->utype }}</span>
                                                 </span>
                                             </span>
                                         </button>

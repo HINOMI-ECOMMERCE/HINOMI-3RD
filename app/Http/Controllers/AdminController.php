@@ -72,7 +72,10 @@ class AdminController extends Controller
 
     public function brands()
     {
-        $brands = Brand::orderby('id', 'DESC')->paginate(10);
+        $brands = Brand::withCount('products') // Tambahkan ini
+                        ->orderby('id', 'DESC')
+                        ->paginate(10);
+
         return view('admin.brands', compact('brands'));
     }
 

@@ -46,6 +46,7 @@
                         <tr>
                             <th>No</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Slug</th>
                             <th>Products</th>
                             <th>Action</th>
@@ -55,16 +56,10 @@
                         @foreach ($brands as $brand)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td class="pname">
-                                <div class="image">
-                                    <img src="{{asset('uploads/brands')}}/{{$brand->image}}" alt="{{$brand->name}}" class="image">
-                                </div>
-                                <div class="name">
-                                    <a href="#" class="body-title-2">{{$brand->name}}</a>
-                                </div>
-                            </td>
+                            <td><a href="#" class="body-title-2">{{$brand->name}}</a></td>
+                            <td><img src="{{asset('uploads/brands')}}/{{$brand->image}}" alt="{{$brand->name}}" class="image"></td>
                             <td>{{$brand->slug}}</td>
-                            <td><a href="#" target="_blank">{{ $brand->products_count ?? 0 }}</a></td>
+                            <td>{{ $brand->products_count ?? 0 }}</td>
                             <td>
                                 <div class="list-icon-function">
                                     <a href="{{route('admin.brand.edit', ['id'=>$brand->id])}}"> 
