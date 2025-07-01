@@ -382,7 +382,7 @@
                                                     </div>
                                                     <div class="body-title-2">Support</div>
                                                 </a>
-                                            </li> --}}
+                                            </li> --}} 
                                             <li>
                                                 <form method="POST"action="{{route('logout')}}" id="logout-form">
                                                     @csrf
