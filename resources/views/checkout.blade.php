@@ -197,24 +197,10 @@
                 @endif
               </div>
               <div class="checkout__payment-methods">
-                {{-- <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode1" value="card">
-                  <label class="form-check-label" for="mode1">
-                    Debit or Credit Cart
-                  
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode2" value ="paypal">
-                  <label class="form-check-label" for="mode2">
-                    Paypal
-                  </label>
-                </div> --}}
                 <div class="form-check">
                   <input class="form-check-input form-check-input_fill" type="radio" name="mode" id="mode3" value="cod">
                   <label class="form-check-label" for="mode3">
                     Cash on delivery
-                  
                   </label>
                 </div>
                 
